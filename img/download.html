@@ -1,0 +1,2112 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwYAU19WGwECV1NXBAUG",licenseKey:"e01d203033",applicationID:"22325341"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var i,o=t("ee"),a=t(23),c={};try{i=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,i.indexOf("dev")!==-1&&(c.dev=!0),i.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&o.on("internal-error",function(t){r(t.stack)}),c.dev&&o.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:i(c||new UncaughtException(t,e,n),!0)}catch(f){try{o("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function i(t,e){var n=e?null:s.now();o("err",[t,n])}var o=t("handle"),a=t(24),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),s.xhrWrappable&&t(10),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,i(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){o("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var i=t("ee"),o=t("handle"),a=t(9),c=t(8),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;i.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),i.on(w,function(t,e){var n=t[0];n instanceof x&&o("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),i.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),i.on(g+h,function(t){o("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&i(e)}function i(t){c.inPlace(t,[u,d],"-",o)}function o(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(i(window),i(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=o(arguments),e={};i.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return i.emit(n+"start",[t,a],c),c.then(function(t){return i.emit(n+"end",[null,t],c),t},function(t){throw i.emit(n+"end",[t],c),t})})}var i=t("ee").get("fetch"),o=t(24),a=t(23);e.exports=i;var c=window,s="fetch-",f=s+"body-",u=["arrayBuffer","blob","json","text","formData"],d=c.Request,l=c.Response,p=c.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,e){r(d[h],e,f),r(l[h],e,f)}),r(c,"fetch",s),i.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),i.emit(s+"done",[null,e],n)}else i.emit(s+"done",[t],n)}))},{}],7:[function(t,e,n){var r=t("ee").get("history"),i=t("wrap-function")(r);e.exports=r;var o=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;o&&o.pushState&&o.replaceState&&(a=o),i.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,e,n){var r=t("ee").get("raf"),i=t("wrap-function")(r),o="equestAnimationFrame";e.exports=r,i.inPlace(window,["r"+o,"mozR"+o,"webkitR"+o,"msR"+o],"raf-"),r.on("raf-start",function(t){t[0]=i(t[0],"fn-")})},{}],9:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function i(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var o=t("ee").get("timer"),a=t("wrap-function")(o),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=o,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),o.on(s+u,r),o.on(c+u,i)},{}],10:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function i(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function o(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(v,i,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),o(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=p.generateSpanId(),m=p.generateTraceId(),w=Date.now(),v={spanId:h,traceId:m,timestamp:w};return(t.sameOrigin||s(t)&&l())&&(v.traceContextParentHeader=i(h,m),v.traceContextStateHeader=o(h,w,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&s(t)&&d())&&(v.newrelicHeader=a(h,m,w,n,r,f)),v}function i(t,e){return"00-"+e+"-"+t+"-01"}function o(t,e,n,r,i){var o=0,a="",c=1,s="",f="";return i+"@nr="+o+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+f+"-"+e}function a(t,e,n,r,i,o){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:i,id:t,tr:e,ti:n}};return o&&r!==o&&(c.d.tk=o),btoa(JSON.stringify(c))}function c(t){return f()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var i=h(n.allowed_origins[r]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function l(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var p=t(20),h=t(13);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],12:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):o(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function o(t,e){t.params.status=e.status;var n=w(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){o(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],i=this;if(n&&r){var o=m(r);o&&(n.txSize=o)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||i.loadCaptureCalled||(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<l;c++)e.addEventListener(d[c],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof v&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var i=f(this.parsedOrigin);if(i&&(i.newrelicHeader||i.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),e(o.headers,i)&&(this.dt=i),t.length>1?t[1]=o:t.push(o)}else t[0]&&t[0].headers&&e(t[0].headers,i)&&(this.dt=i)})}},{}],13:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,i={};e.href=t,i.port=e.port;var o=e.href.split("://");!i.port&&o[1]&&(i.port=o[1].split("/")[0].split("@").pop().split(":")[1]),i.port&&"0"!==i.port||(i.port="https"===o[0]?"443":"80"),i.hostname=e.hostname||n.hostname,i.pathname=e.pathname,i.protocol=o[0],"/"!==i.pathname.charAt(0)&&(i.pathname="/"+i.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return i.sameOrigin=a&&(!e.hostname||c),"/"===i.pathname&&(r[t]=i),i}},{}],14:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?i(t.response):"text"===n||""===n||void 0===n?i(t.responseText):void 0}var i=t(16);e.exports=r},{}],15:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(23),c=t(24),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=i(l+e,!0,"api")}),u.addPageAction=i(l+"addPageAction",!0),u.setCurrentRouteName=i(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((i?"":"no-")+"fn-start",[f.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=i(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,f.now(),!1,e])}},{}],16:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],17:[function(t,e,n){var r=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(r=+i[1]),e.exports=r},{}],18:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(25);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],19:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!w){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),w=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[l.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,f,u,d=t("handle"),l=t("loader"),p=t(22),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var w=!1,v=["click","keydown","mousedown","pointerdown","touchstart"];v.forEach(function(t){document.addEventListener(t,a,!1)})}p(c)}},{}],20:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var i,o="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<o.length;c++)i=o[c],"x"===i?a+=t().toString(16):"y"===i?(i=3&t()|8,a+=i.toString(16)):a+=i;return a}function i(){return a(16)}function o(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,i=window.crypto||window.msCrypto;i&&i.getRandomValues&&Uint8Array&&(n=i.getRandomValues(new Uint8Array(31)));for(var o=[],a=0;a<t;a++)o.push(e().toString(16));return o.join("")}e.exports={generateUuid:r,generateSpanId:i,generateTraceId:o}},{}],21:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=s[1])}e.exports={agent:i,version:o,match:r}},{}],22:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?f(t,s,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!p.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),s=m(n),f=s.length,u=0;u<f;u++)s[u].apply(c,r);var l=d[y[n]];return l&&l.push([x,n,r,c]),c}}function o(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function w(t){return l[t]=l[t]||i(n)}function v(t,e){u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:o,addEventListener:o,removeEventListener:h,emit:n,get:w,listeners:m,context:e,buffer:v,abort:c,aborted:!1};return x}function o(t){return f(t,s,a)}function a(){return new r}function c(){(d.api||d.feature)&&(p.aborted=!0,d=p.backlog={})}var s="nr@context",f=t("gos"),u=t(23),d={},l={},p=e.exports=i();e.exports.getOrSetContext=o,p.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=x.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(g,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=t(18),c=t("handle"),s=t(23),f=t("ee"),u=t(21),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},y=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),x=e.exports={offset:a.getLastTimestamp(),now:a,origin:v,features:{},xhrWrappable:y,userAgent:u};t(15),t(19),l[p]?(l[p]("DOMContentLoaded",o,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",i),d[h]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var b=0},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,s,f){function nrWrapper(){var o,a,u,l;try{a=this,o=d(arguments),u="function"==typeof r?r(o,a):r||{}}catch(p){i([p,"",[o,a,s],u],t)}c(n+"start",[o,a,s],u,f);try{return l=e.apply(a,o)}catch(h){throw c(n+"err",[o,a,h],u,f),h}finally{c(n+"end",[o,a,l],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[l]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,s,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)s=e[f],c=t[s],a(c)||(t[s]=n(c,u?s+r:r,i,s,o))}function c(n,r,o,a){if(!h||e){var c=h;h=!0;try{t.emit(n,r,o,e,a)}catch(s){i([s,n,r,o],t)}h=c}}return t||(t=u),n.inPlace=r,n.flag=l,n}function i(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)p.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[l])}function c(t,e){var n=e(t);return n[l]=t,o(t,n,u),n}function s(t,e,n){var r=t[e];t[e]=c(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(24),l="nr@original",p=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=s,e.exports.argsToArray=f},{}]},{},["loader",2,12,4,3]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/dist/images/favicon_e1324f7c.jpg" />
+  <link rel="alternate" hreflang="en-us" href="https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule" />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+//]]>
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+	<!-- This site is optimized with the Yoast SEO plugin v14.7 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule - Bell Media</title>
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<link rel="canonical" href="https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule - Bell Media" />
+	<meta property="og:description" content="Tags: @TSN_Sports; @TSNHockey; TORONTO (January 8, 2021) – TSN announced today its regional broadcast schedule for the Toronto Maple Leafs’ 2020-2021 season. Available to TSN and TSN Direct subscribers in the Leafs designated broadcast region, LEAFS ON TSN begins with the Battle Of Ontario as the Buds take on the Ottawa Senators on Friday, Jan. &hellip; Continued" />
+	<meta property="og:url" content="https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/" />
+	<meta property="og:site_name" content="Bell Media" />
+	<meta property="og:image" content="https://www.bellmedia.ca/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg" />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="1365" />
+	<meta name="twitter:card" content="summary" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.bellmedia.ca/#organization","name":"Bell Media","url":"https://www.bellmedia.ca/","sameAs":[],"logo":{"@type":"ImageObject","@id":"https://www.bellmedia.ca/#logo","inLanguage":"en-US","url":"https://www.bellmedia.ca/lede/wp-content/uploads/2020/07/logo-bellmedia-en.png","width":478,"height":122,"caption":"Bell Media"},"image":{"@id":"https://www.bellmedia.ca/#logo"}},{"@type":"WebSite","@id":"https://www.bellmedia.ca/#website","url":"https://www.bellmedia.ca/","name":"Bell Media","description":"","publisher":{"@id":"https://www.bellmedia.ca/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.bellmedia.ca/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/#primaryimage","inLanguage":"en-US","url":"https://www.bellmedia.ca/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg","width":2048,"height":1365,"caption":"TORONTO, ONTARIO - AUGUST 07: Auston Matthews #34 of the Toronto Maple Leafs celebrates his game winning goal at 13:10 in overtime to defeat the Columbus Blue Jackets 4-3 in Game Four of the Eastern Conference Qualification Round prior to the 2020 NHL Stanley Cup Playoffs at Scotiabank Arena on August 07, 2020 in Toronto, Ontario. (Photo by Andre Ringuette/Freestyle Photo/Getty Images)"},{"@type":"WebPage","@id":"https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/#webpage","url":"https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/","name":"TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule - Bell Media","isPartOf":{"@id":"https://www.bellmedia.ca/#website"},"primaryImageOfPage":{"@id":"https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/#primaryimage"},"datePublished":"2021-01-08T16:52:26+00:00","dateModified":"2021-01-08T16:52:26+00:00","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.bellmedia.ca/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/"]}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.bellmedia.ca' />
+<link rel='dns-prefetch' href='//assets.adobedtm.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.bellmedia.ca\/lede\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.bellmedia.ca/lede/wp-includes/css/dist/block-library/style.min.css?ver=5.3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-smart-crop-renderer-css'  href='https://www.bellmedia.ca/lede/wp-content/plugins/wp-smartcrop/css/image-renderer.css?ver=2.0.5' type='text/css' media='all' />
+<link rel='stylesheet' id='wpml-legacy-dropdown-0-css'  href='//www.bellmedia.ca/lede/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style.css?ver=1' type='text/css' media='all' />
+<style id='wpml-legacy-dropdown-0-inline-css' type='text/css'>
+.wpml-ls-statics-shortcode_actions, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu, .wpml-ls-statics-shortcode_actions a {border-color:#cdcdcd;}.wpml-ls-statics-shortcode_actions a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions a:hover,.wpml-ls-statics-shortcode_actions a:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language:hover>a, .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
+</style>
+<link rel='stylesheet' id='sage/main.css-css'  href='https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/dist/styles/main_a208dc6b.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/sitepress-multilingual-cms/res/js/jquery.cookie.js?ver=4.2.9'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpml_cookies = {"_icl_current_language":{"value":"en","expires":1,"path":"\/"}};
+var wpml_cookies = {"_icl_current_language":{"value":"en","expires":1,"path":"\/"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=4.2.9'></script>
+<script type='text/javascript' src='//assets.adobedtm.com/launch-EN8508e1965b004de29de2dbd977d7156a.min.js?ver=20190501'></script>
+<script type='text/javascript' src='//www.bellmedia.ca/lede/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script.js?ver=1'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.11.5'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/dist/scripts/main_a208dc6b.js'></script>
+<script type='text/javascript'>
+window.bm_elasticsearch = function(query, options) {
+  query.query.function_score.query.bool.must[0].multi_match.fields = ["post_title^5","url^2","network","post_tag^3"];
+  return query;
+}
+</script>
+<link rel='https://api.w.org/' href='https://www.bellmedia.ca/lede/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.bellmedia.ca/lede/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.bellmedia.ca/lede/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.3.6" />
+<link rel='shortlink' href='https://www.bellmedia.ca/?p=409461' />
+<link rel="alternate" type="application/json+oembed" href="https://www.bellmedia.ca/lede/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bellmedia.ca%2Fthe-lede%2Fpress%2Ftsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.bellmedia.ca/lede/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bellmedia.ca%2Fthe-lede%2Fpress%2Ftsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule&#038;format=xml" />
+<meta name="generator" content="WPML ver:4.2.9 stt:1,4;" />
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bellmediapr">
+<meta name="twitter:creator" content="@bellmediapr">
+<meta name="twitter:title" content="TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule">
+<meta name="twitter:description" content="Tags: @TSN_Sports; @TSNHockey; TORONTO (January 8, 2021) &ndash; TSN announced today its regional broadcast schedule for the Toronto Maple Leafs&rsquo; 2020-2021 season. Available to TSN and TSN Direct subscribers in the Leafs designated broadcast region, LEAFS ON TSN begins with the Battle Of Ontario as the Buds take on the&amp;hellip;">
+<meta name="twitter:image" content="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg?fit=clip&amp;w=1024&amp;h=1024&amp;crop=faces&amp;q=75">
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">//<![CDATA[
+	var dataLayer_content = {"pagePostType":"pressrelease","pagePostType2":"single-pressrelease","pageAttributes":["hockey-2","nhl","north-division","leafs","toronto-maple-leafs"],"pagePostAuthor":"Natalie Cole"};
+	dataLayer.push( dataLayer_content );//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WLDJ8NK');//]]>
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->        <script>if (location.host != ("www.bellm"+"edia.ca")) { location.href = "https:\/\/www.bellmedia.ca";  }</script>
+    
+    <meta property="og:image" content="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg?fit=crop&amp;w=1920&amp;h=930&amp;crop=faces&amp;q=75" />
+</head>
+  <body class="pressrelease-template-default single single-pressrelease postid-409461 tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule app-data index-data singular-data single-data single-pressrelease-data single-pressrelease-tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule-data">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLDJ8NK"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="app-loader">
+              <img src="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/resources/assets/images/logo.svg" alt="" class="logo-lede">
+            <div class="progress-bar"></div>
+    </div>
+        <header data-active-menu='none' data-controller="common--components--menus--menu" class="header transition-fade">
+	<div class="widget-logos">
+		<div class="widget__inner">
+			<div class="widget__body">
+				<a href="https://www.bellmedia.ca" class="logo-bellmedia">
+					<img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2019/11/Bell-Media-EN-sans-fond.png?fit=clip&amp;w=120&amp;h=72&amp;crop=faces&amp;q=75" alt="BellMedia" />
+				</a>
+			</div><!-- /.widget__body -->
+
+			<a class="btn-dots">
+				<span></span>
+				
+				<span></span>
+				
+				<span></span>
+			</a>
+		</div><!-- /.widget__innser -->
+	</div><!-- /.widget-logos -->
+
+	<div class="grid-container">
+		<div class="header__inner" data-id="any" data-target="common--components--menus--menu.expand">
+			<a href="https://www.bellmedia.ca/the-lede/" class="logo">
+				<img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2019/11/TheLede_Logo_Reverse.png?fit=clip&amp;w=120&amp;h=72&amp;crop=faces&amp;q=75" alt="The Lede">
+			</a>
+
+			<a class="btn-burger js-link-dropdown" data-menu='any' data-target="common--components--menus--menu.burger" data-action="click->common--components--menus--menu#toggleMobile">
+				<span></span>
+				
+				<span></span>
+				
+				<span></span>
+			</a>
+
+			<div class="header__body">
+											<nav class="nav">
+
+    <ul><li data-id="Shows" data-target="common--components--menus--menu.expand"><a class="js-link-dropdown" data-menu="Shows" data-action="click->common--components--menus--menu#toggle" ><span>Shows<i class="ico-triangle"></i></span></a><div class="dropdown" data-target="common--components--menus--menu.output">
+                            <div class="dropdown__row">
+                                <div class="grid-container">
+                                    <div class="slider-primary slider-primary--light">
+                                        <div class="slider__head">
+                                            <h6>Featured Shows</h6>
+                                        </div>
+                                    <div class="slider__clip">
+                                        <div class="slider__slides"><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-sci-fi/resident-alien-4">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2020/12/ResidentAlien_S1_1920x1080_KeyArt.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_SciFi_Channel_Primary_Logo_Print_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>Resident Alien</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv/masterchef-canada-2">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2018/04/MCC_18481-small.jpg?fit=crop&w=624&h=351&fp-x=0.492&fp-y=0.3685&crop=focalpoint&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/01/CTV_Logo_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>MasterChef Canada: Back to Win</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/crave/rupauls-drag-race">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2019/08/RPDR13_FI.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/12/Crave_Logo_WhiteTM.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>RuPaul&#8217;s Drag Race</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv/call-me-kat">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2020/11/source-16048593e7adf31bb7f94f70be45545b2fddfb7amaster-1.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/01/CTV_Logo_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>Call Me Kat</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv/the-good-doctor">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2020/06/The-Good-Doctor.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/01/CTV_Logo_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>The Good Doctor</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-comedy/go-big-show">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2020/12/V2_71_GoBigShow_Horiz_FINISH_NoNames.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_Comedy_Channel_Primary_Logo_Print_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>GO-BIG SHOW</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv/holmes-family-effect">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2019/08/HFE_Group_Environmental_2_1512_2.jpg?fit=crop&w=624&h=351&fp-x=0.494&fp-y=0.2025&crop=focalpoint&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/01/CTV_Logo_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>Holmes Family Effect</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/crave/45849">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2015/01/ShamelessHeader.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/12/Crave_Logo_WhiteTM.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>Shameless</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/discovery/heavy">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2017/06/PANIQUE-SUR-LA-401_HEAVY-RESCUE-401.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/Discovery_Logo_Screen_Reverse-square.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>Heavy Rescue: 401</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="article">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-drama/full-bloom">
+                                        <div class="article__image ">
+                                            <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2020/12/source-222317453003376192x4128-1.jpg?fit=crop&w=624&h=351&crop=faces&q=75" alt="" />
+
+                                            <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_Drama_Channel_Primary_Logo_Print_Reverse.png" alt="" class="logo-tv" />
+                                        </div>
+
+                                        <div class="article__body">
+                                            <h4>Full Bloom</h4>
+                                        </div>
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide -->    </div><!-- /.slider__slides -->
+                        </div><!-- /.slider__clip -->
+                    </div><!-- /.slider -->
+                </div><!-- /.grid-container -->
+            </div><!-- /.dropdown__row -->
+            </div><!-- /.dropdown -->
+        </li></li>
+<li data-id="Brands" data-target="common--components--menus--menu.expand"><a class="js-link-dropdown" data-menu="Brands" data-action="click->common--components--menus--menu#toggle" ><span>Brands<i class="ico-triangle"></i></span></a><div class="dropdown">
+                            <div class="dropdown__row">
+                                <div class="grid-container">
+                                    <div class="slider-secondary slider-secondary--light">
+                                        <div class="slider__head">
+                                            <h6>Featured Brands</h6>
+                                        </div><!-- /.slider__head -->
+
+                                        <div class="slider__clip">
+                                            <div class="slider__slides"><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/01/CTV_Logo_Screen_RGB-2-1.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/tsn">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/crave">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/12/Crave_Logo_CraveBlue_rgb_TM.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-comedy">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_Comedy_Channel_Primary_Logo_Screen_RGB.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-drama">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_Drama_Channel_Primary_Logo_Screen_RGB.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-life">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_Life_Channel_Primary_Logo_Screen_RGB.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/ctv-sci-fi">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2016/06/CTV_SciFi_Channel_Primary_Logo_Screen_RGB.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide --><div class="slider__slide">
+                                <article class="feature-brand">
+                                    <a href="https://www.bellmedia.ca/the-lede/tv/discovery">
+                                        <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/Discovery_Logo_Screen_RGB-square.png" alt="" width="191" height="56" />
+                                    </a>
+                                </article><!-- /.article -->
+                            </div><!-- /.slider__slide -->    </div><!-- /.slider__slides -->
+                        </div><!-- /.slider__clip -->
+                    </div><!-- /.slider -->
+                </div><!-- /.grid-container -->
+            </div><!-- /.dropdown__row -->
+            <div class="dropdown__row dropdown__row--gray">
+                <div class="grid-container">
+                    <div class="section-tabs">
+                        <header class="section__head">
+                            <h4>Browse by brands</h4>
+                        </header><!-- /.section__head -->
+                        <div class="section__body">
+                            <div class="tabs">
+                                <div class="tabs__head">
+                                    <nav class="tabs__nav">
+                                        <ul><li class='current'>
+                                <a href="#tab0">
+                                    <span>Television</span>
+                                </a>
+                            </li><li>
+                                <a href="#tab1">
+                                    <span>Radio</span>
+                                </a>
+                            </li><li>
+                                <a href="#tab2">
+                                    <span>Out of Home</span>
+                                </a>
+                            </li><li>
+                                <a href="#tab3">
+                                    <span>Bell Media</span>
+                                </a>
+                            </li></ul>
+                    </nav><!-- /.tabs__nav -->
+                </div><!-- /.tabs__head -->
+                <div class="tabs__body"><div class="tab current" id="tab0">
+                                <div class="cols"><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/animal-planet">Animal Planet</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/bell-lets-talk">Bell Let's Talk</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/bnn-bloomberg">BNN Bloomberg</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/canal-d">Canal D</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/vie">Canal Vie</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/cftk-tv">CFTK TV</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/cinepop">Cinépop</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/cjdc-tv">CJDC TV</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/cp24">CP24</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/crave">Crave</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv">CTV</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-comedy">CTV Comedy Channel</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-drama">CTV Drama Channel</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-homefront">CTV Homefront</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-life">CTV Life Channel</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-news">CTV News</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-news-channel">CTV News Channel</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-sci-fi">CTV Sci-Fi Channel</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/ctv-two">CTV2</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/discovery">Discovery</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/discovery-science">Discovery Science</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/discovery-velocity">Discovery Velocity</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/e">E!</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/espn-classic">ESPN Classic</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/hbo-canada">HBO</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/iheartradio-mmva">iHeartRadio MMVA</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/investigation">Investigation</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/investigation-discovery">Investigation Discovery</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/mtv">MTV</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/much">Much</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/noovo">Noovo</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/rds">RDS</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/rds-info">RDS INFO</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/rds2">RDS2</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/snackabletv">SnackableTV</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/starz">Starz</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/super-ecran">Super Écran</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/tsn">TSN</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/vrak">VRAK</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/tv/z">Z</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --></div><!-- /.cols -->
+                        </div><!-- /.tab --><div class="tab" id="tab1">
+                                <div class="cols"><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/105-3-fm-fox">105.3 FM The Fox</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/97-7-htz-fm">97.7 HTZ FM</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/1150-am">AM 1150</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/am580">AM580</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/am800">AM800</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/100-9-big-dog">Big Dog 100.9</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/boom-fm">Boom FM</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/1070-cfax">CFAX 1070</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/580-cfra-ottawa">CFRA 580</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/97-7-chom">CHOM 97.7</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/104-5-chum">CHUM 104.5</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/cjad-800">CJAD 800 AM</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/92-cjay">CJAY 92</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/102-9-k-lite-fm">CKLH K-Lite 102.9</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/energie">ÉNERGIE</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/ez-rock">EZ ROCK</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/funny">FUNNY</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/103380-2">iHeartRadio</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/k93">K93</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/99-5-kfun">KFUN 99.5</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/104-9-max">MAX 104.9</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/move">MOVE</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/newstalk-1010">NEWSTALK 1010</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/newstalk-1290">NEWSTALK 1290</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/newstalk-580-cfra">NEWSTALK 580 CFRA</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/newstalk-610">NEWSTALK 610</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/pure-country">Pure Country</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/rouge-fm">Rouge FM</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/sun-fm">Sun FM</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/bear">The Bear</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/the-dock">The Dock</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/tsn">TSN</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/radio/virgin-radio">Virgin Radio</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --></div><!-- /.cols -->
+                        </div><!-- /.tab --><div class="tab" id="tab2">
+                                <div class="cols"><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/out-of-home/astral-home">Astral</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --></div><!-- /.cols -->
+                        </div><!-- /.tab --><div class="tab" id="tab3">
+                                <div class="cols"><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/bellmedia/bell-media">Bell Media</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/bellmedia/bell-media-partnerships">Bell Media Partnerships</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/bellmedia/cp24-chum-christmas-wish">CP24 CHUM CHRISTMAS WISH</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/bellmedia/dome-productions-inc">Dome Productions</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --><div class="col">
+                                    <ul class="list-links"><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/bellmedia/harold-greenberg-fund">Harold Greenberg Fund</a>
+                                    </li><li>
+                                        <a href="https://www.bellmedia.ca/the-lede/bellmedia/pinewood">Pinewood</a>
+                                    </li>    </ul><!-- /.list-links -->
+                                </div><!-- /.col --></div><!-- /.cols -->
+                        </div><!-- /.tab -->        </div><!-- /.tabs -->
+                            </div><!-- /.section__body -->
+                        </div><!-- /.section-tabs -->
+                    </div><!-- /.grid-container -->
+                </div><!-- /.dropdown__row -->
+            </div><!-- /.dropdown --></li>
+<li><a href="https://www.bellmedia.ca/the-lede/todays-lede-stories/"><span>Today’s Lede Stories</span></a></li>
+<li><a href="https://www.bellmedia.ca/the-lede/news/"><span>News</span></a></li>
+<li><a href="https://www.bellmedia.ca/the-lede/team/"><span>Team</span></a></li>
+</ul>
+    <template data-target='common--components--menus--menu.search' style='display:none;'>
+    <div class="dropdown__row sub-search dropdown__row--gray"
+        data-controller="common--components--search--search"
+        data-common--components--search--search-host="https://oak-2768401.us-east-1.bonsai.io/bellmedialede"
+        data-common--components--search--search-filter="pr"
+        data-common--components--search--search-filter-type="tv_show"
+        data-common--components--search--search-fields='["post_title^5"]'
+        data-common--components--search--search-match-type="best_fields"
+        data-common--components--search--search-has-results="false"
+        data-common--components--search--search-sort-by='["_score", {"post_date": { "order": "desc" }}]'
+        data-common--components--search--search-unfocus-on-submit='true'
+        data-common--components--search--search-per-page='4'
+    >
+        <div class="grid-container">
+            <div class="" style="height: 100%; width: 100%;">
+                <div class="slider__head">
+                        <div class='search__title'>
+                            <h6>Shows</h6>
+                        </div>
+                    
+                        <div  class='results__title'>
+                            <h6>Result(s) for                                 "<b data-target='common--components--search--search.keyword'>keyword</b>" 
+                                <span>
+                                    <span data-target='common--components--search--search.results'></span>
+                                    result(s)                                </span>
+                            </h6>
+                            <button class='close-btn' data-action='click->common--components--search--search#clearResults'>
+                                <i class="ico-x" data-action='click->common--components--search--search#clearResults'></i>
+                            </button>
+                        </div>
+                    </h6>
+
+                    <div class="search">
+
+                        <div class='search__page'>
+    
+    <ol>
+        <li data-action="click->common--components--search--search#goToFirstPage" data-id='1' data-target='common--components--search--search.page' class='search__page--first'>1</li>
+        <li>
+            <ul
+                data-target='common--components--search--search.pages'
+                data-controller='common--modules--template--template'
+                data-action='template:pages:show->common--modules--template--template#createTemplate'
+            >
+                <script data-target="common--modules--template--template.template" type="text/x-lodash-template">
+                    <% _.forEach(results, function(page) { %>
+                        <li class="<%- page.className %>" data-page='<%- page.id %>' data-action='click->common--components--search--search#goToPage' data-id="<%- page.id %>" data-target="common--components--search--search.page common--modules--template--template.renderedElement">
+                                <%- page.id %>
+                        </li>
+                    <% }); %> 
+                </script>
+            </ul>
+        </li>
+        <li data-action="click->common--components--search--search#goToLastPage" data-id='last' data-target='common--components--search--search.page' class='search__page--last'>>></li>
+    </ol>
+
+    <ol>
+        <li><a data-action="click->common--components--search--search#prevPage" class='search__page--prev slick-prev'></a></li>
+        <li><a data-action="click->common--components--search--search#nextPage" class='search__page--next slick-next'></a></li>
+    </ol>
+
+</div>                        <form action="?" class='search__form' method="post" data-action="submit->common--components--search--search#submitInputChange">
+                        
+                            <input style='display:none;' data-target="common--components--search--search.type" data-type="tv_show"   type="radio" class="form__field" name="radio_subsearch" id="radio_subsearch" checked />
+                            
+                            <label for="q_subsearch" class="hidden">Search</label>
+                            <input 
+                                required 
+                                data-target="common--components--search--search.query"   
+                                type="search" class="search__field" name="q_subsearch" id="q_subsearch" placeholder="Search Shows"
+                            />
+                                        
+                            <button class="search__btn">
+                                <i class="icon-search"></i>
+                            </button>
+                            <h6 class='result_empty'>No results found for "<b data-target='common--components--search--search.keyword'>keyword</b>"</h6>
+                        </form>
+
+                        <div 
+    class="articles articles--quaternary" 
+    data-target='common--components--search--search.output'
+    data-controller='common--modules--template--template'
+    data-action='template:results:show->common--modules--template--template#createTemplate template:results:delete->common--modules--template--template#clearTemplate'
+>
+
+    <script data-target="common--modules--template--template.template" type="text/x-lodash-template">
+        <% _.forEach(results, function(result) { %>
+            <article class="article article--quaternary" data-id="<%- result.id %>" data-target="common--modules--template--template.renderedElement">
+                <a href="<%- result.permalink %>" target="_blank" rel="noopener noreferrer">
+                    <div class="article__image overlay <%- result.post_type %> <% if (result.image === false) { %> no-image <% } %>">
+                        <% if (result.image != false) { %>
+                            <img src="<%- result.image %>" alt="" />
+                        <% } else if (result.post_type === 'pressrelease') { %>
+                            <img src="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/resources/assets/images/news_generic.jpg" alt="" />
+                        <% } else if (result.post_type === 'tv_show' || result.post_type === 'radio_show' ) { %>
+                            <img src="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/resources/assets/images/tv_show_generic.jpg" alt="" />
+                        <% } else { %>
+                            <div class='placeholder'> <%- result.title %> </div>
+                        <% } %>
+                        
+                        <img src="<%- result.logo %>" alt="" class="logo-tv logo-tv--size1" />
+                    </div>
+                    
+                    <div class='article__tag'> 
+                        <span><%- result.type %> </span>
+                    </div>
+
+                    <div class="article__body equalize-size1">
+                        <% if (result.post_type === 'pressrelease') { %>
+                            <div class='article__date'>
+                                <span><%- result.post_date %></span>
+                            </div>
+                        <% } %>
+                        <p>
+                            <%- result.title %>
+                        </p>
+                        <h6>
+                            <%- result.title %>
+                        </h6>
+                    </div>
+                </a>
+            </article>
+        <% }); %> 
+    </script>
+    
+</div><!-- /.articles-secondary -->
+                    </div><!-- /.search -->
+                </div><!-- /.slider__head -->
+
+                <div class="slider__clip">
+                    
+                </div><!-- /.slider__clip -->
+            </div><!-- /.slider -->
+        </div><!-- /.grid-container -->
+    </div><!-- /.dropdown__row -->
+</template>
+
+</nav><!-- /.nav -->					
+				
+				<nav class="nav-access"  data-controller="common--components--login--login" >
+					<ul>
+						<li class="item-user">
+															<a href="javascript:void(0);" class="js-popup" data-target="#popup-login">
+									<i class="icon-user"></i>
+								</a>
+													</li>
+
+						<li>
+							<a href="javascript:void(0);" class="btn-search js-popup" data-target="#popup-search">
+								<i class="icon-search"></i>
+							</a>
+						</li>
+						
+						<li class="lang">
+
+							<a data-no-swup href="https://www.bellmedia.ca/fr/salle-de-presse/">
+								FR
+							</a>
+						</li>
+					</ul>
+				</nav><!-- /.nav -->
+			</div><!-- /.header__body -->
+			
+		</div><!-- /.header__inner -->
+	</div><!-- /.grid-container -->
+</header><!-- /.header -->
+   
+    <div class="wrapper main" data-controller=common--layouts--scroll data-action="body:scroll:disable->common--layouts--scroll#disable body:scroll:enable->common--layouts--scroll#enable" id="swup" role="document">
+      
+      <script  type="text/javascript">
+        window.logoutUrl = 'https://www.bellmedia.ca/lede/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fwww.bellmedia.ca%2Fthe-lede%2Fpress%2Ftsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule&amp;_wpnonce=957a22455d'
+      </script>
+      
+                  <div class="transition-fade">
+        <div class="intro intro--size3 overlay intro-img">
+    <div class="c-bg-image intro__image js-bg-image">
+        <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg?fit=crop&amp;w=1920&amp;h=930&amp;crop=faces&amp;q=75" style="display:none" sizes="" srcset="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg?fit=crop&amp;w=768&amp;h=1024&amp;crop=faces&amp;q=75 768w, https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg?fit=crop&amp;w=1920&amp;h=930&amp;crop=faces&amp;q=75 1920w">
+    </div>
+
+    <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264596090.jpg?fit=crop&amp;w=768&amp;h=1024&amp;crop=faces&amp;q=75" alt="" />
+</div>
+        </div>
+    
+            <div class="transition-fade">
+        <section class="section-blog section-blog--primary">
+    <div class="grid-container">
+        <div class="section__inner">
+            <!-- <div class="logo-container">
+                <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1">
+            </div> -->
+                                                                                            <div class="logo-container">
+                                                                                <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1">
+                                                                                                <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1 logo-image-none">
+                                                                                                    <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1 logo-image-none">
+                                                                                                    <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1 logo-image-none">
+                                                                                                    <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1 logo-image-none">
+                                                                                                    <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" class="logo-size1 logo-image-none">
+                                                                    </div>
+                        <div class="section__bar">
+                <div 
+    data-controller='common--components--previous--previous' 
+    data-common--components--previous--previous-default-url='https://www.bellmedia.ca/the-lede/news/'
+    data-common--components--previous--previous-default-text='Go To The News Page'
+    data-common--components--previous--previous-last-page-text='Back To Previous Page' >
+
+    <a data-target='common--components--previous--previous.button' href="https://www.bellmedia.ca/the-lede/news/" class="link link--alt">
+        <i class="icon-right-arrow"></i> 
+        <span data-target='common--components--previous--previous.text'>Go To The News Page</span>
+    </a>
+</div>
+
+
+                <ul class="list-links-alt">
+                    <li>
+                        <a href="javascript:void(0);" onclick="window.print();return false;">
+                            <span>
+                                <i class="icon-printer"></i>
+                                
+                                <i class="icon-printer"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    
+                    
+
+                    <li class="btn-share pr-fix">
+                        <a href="#share">
+                            <span>
+                                <i class="icon-share"></i>
+                                
+                                <i class="icon-share"></i>
+                            </span>
+                        </a>
+
+                        <ul>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet/?text=TSN+Announces+Toronto+Maple+Leafs+2020-2021+Regional+NHL+Broadcast+Schedule&amp;url=https%3A%2F%2Fthelede.ca%2Fbxj1S8tw" target="_blank" aria-label="">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://thelede.ca/bxj1S8ln&amp;title=TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule&amp;summary=TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule2&amp;source=https://thelede.ca/bxj1S8ln" target="_blank">
+                                    <i class="icon-linkedin"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://facebook.com/sharer/sharer.php?u=https://thelede.ca/bxj1S8fb" target="_blank">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="mailto:?subject=TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule&amp;body=https://thelede.ca/bxj1S8" target="_self">
+                                    <i class="icon-mail"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- /.list-link-alt -->
+            </div><!-- /.section__bar -->
+
+            <header class="section__head">
+                <h1>
+                    TSN Announces Toronto Maple Leafs 2020-2021 Regional NHL Broadcast Schedule
+                </h1>
+
+            <h5> — January 8, 2021</h5>
+
+            </header><!-- /.section__head -->
+
+            <div class="section__content">
+                <h3>
+                    – TSN’s Toronto Maple Leafs coverage begins with the Battle of Ontario as the Leafs square off against the Ottawa Senators on Jan. 15 on TSN4 in the new all-Canadian Scotia NHL North Division –<br />
+–  TSN’s Toronto Maple Leafs pre-season coverage includes the Blue vs. White Game presented by Canadian Tire, airing Saturday, Jan. 9 on TSN4 –<br />
+– TSN 1050 delivers daily Toronto Maple Leafs coverage, analysis, and radio broadcast coverage throughout the 2020-2021 regular season –<br />
+
+                </h3>
+                
+                <div class="content">
+                    <p style="text-align: center;">Tags: <a href="https://twitter.com/TSN_Sports">@TSN_Sports</a>; <a href="https://twitter.com/TSNHockey">@TSNHockey</a>;</p>
+<strong>TORONTO (January 8, 2021) </strong>– TSN announced today its regional broadcast schedule for the <strong>Toronto Maple Leafs</strong>’ 2020-2021 season. Available to TSN and TSN Direct subscribers in the Leafs designated broadcast region, <strong>LEAFS ON TSN</strong> begins with the Battle Of Ontario as the Buds take on the Ottawa Senators on <strong>Friday, Jan. 15</strong> at<strong> 7 p.m. ET</strong> on <strong>TSN4</strong>, <strong>TSN.ca</strong>, and the <strong>TSN app</strong>.
+
+Featuring 18 regular season games in the new all-Canadian Scotia NHL North Division, TSN’s comprehensive Toronto Maple Leafs coverage also includes the <strong>Blue vs. White Game</strong> <strong>presented by Canadian Tire</strong>, airing <strong>Saturday,</strong> <strong>Jan. 9</strong> at <strong>7 p.m. ET </strong>on <strong>TSN4</strong>.
+
+The complete <strong>LEAFS ON TSN</strong> television broadcast schedule is available at <a href="http://www.tsn.ca/1.572246">TSN.ca</a>, and the TSN 1050 Toronto radio broadcast schedule is available on the station’s <a href="https://www.tsn.ca/radio/toronto-1050/leafs-on-1050">official website</a>.
+
+With the Maple Leafs competing in the new all-Canadian Scotiabank NHL North Division, highlights of the 2020-2021 <strong>LEAFS ON TSN</strong> broadcast schedule include:
+<ul>
+ 	<li>Three Battle of Ontario matchups against the Ottawa Senators <strong>Friday, Jan. 15</strong> at <strong>7 p.m. ET</strong>, <strong>Monday, Feb. 15</strong> at <strong>7 p.m. ET</strong>, and <strong>Thursday, March 25 </strong>at<strong> 7 p.m. ET</strong></li>
+ 	<li>The Leafs take on Connor McDavid and the Oilers <strong>Friday, Jan. 22</strong> at <strong>7 p.m. ET</strong> and then travel to Edmonton <strong>Thursday,</strong> <strong>Jan. 28 </strong>at<strong> 9 p.m. ET </strong></li>
+ 	<li>The Leafs host the Winnipeg Jets <strong>Tuesday, March 9</strong> at <strong>6 p.m. ET</strong> and <strong>Thursday, March 11</strong> at <strong>6 p.m. ET</strong></li>
+ 	<li>An Easter holiday matchup against “Johnny Hockey” and the Calgary Flames on <strong>Sunday, April 4</strong> at <strong>8 p.m. ET</strong> and <strong>Monday, April 5</strong> at <strong>9:30 p.m. ET</strong></li>
+ 	<li>Two marquee matchups against Original Six rivals the Montreal Canadiens on <strong>Monday, April 12</strong> at <strong>7 p.m. ET</strong> and <strong>Friday, May 7 </strong>at <strong>7 p.m. ET</strong></li>
+</ul>
+<strong><u>Broadcast Team</u></strong>
+
+TSN’s coverage of Leafs games features award-winning play-by-play commentator <a href="http://www.twitter.com/gmillerTSN">Gord Miller</a> alongside game analyst <a href="http://www.twitter.com/rayferrarotsn">Ray Ferraro</a>, with reporter <a href="https://twitter.com/markhmasters">Mark Masters</a>.
+
+The acclaimed TSN Hockey panel featuring host <a href="https://twitter.com/tsnjamesduthie?lang=en">James Duthie</a>, TSN Hockey Insider <a href="https://twitter.com/DarrenDreger">Darren Dreger</a>, <u>and </u>analysts <a href="https://twitter.com/odognine2?lang=en">Jeff O’Neill</a> and <a href="https://twitter.com/djpoulin20?lang=en">Dave Poulin</a> contribute to <strong>LEAFS ON TSN</strong>, delivering comprehensive analysis including TSN’s fan-favourite segment “The Quiz.”
+
+<strong><u>TSN 1050 Toronto </u></strong>
+
+TSN 1050 Toronto is an official radio broadcaster of the Toronto Maple Leafs, delivering in-depth commentary and analysis from TSN’s best-in-class team of Hockey Insiders and experts. Game-day coverage is hosted by <a href="https://twitter.com/jimtatti">Jim Tatti</a> featuring play-by-play commentator <a href="https://twitter.com/BonsieTweets">Joe Bowen</a> and game analyst <a href="https://twitter.com/Jim_Ralph">Jim Ralph</a>, with contributions from TSN 1050’s Leafs reporter <a href="https://twitter.com/kristen_shilton">Kristen Shilton</a>.
+
+TSN 1050 also delivers the most comprehensive daily Leafs coverage, featuring hockey analysts and multiple former Leafs players including O’Neill, <a href="https://twitter.com/CarloColaiacovo">Carlo Colaiacovo</a>, and <a href="https://twitter.com/mike_p_johnson">Mike Johnson</a>. Johnson is a regular on <a href="https://www.tsn.ca/radio/toronto-1050/leafs-lunch">LEAFS LUNCH</a>, hosted by <a href="https://twitter.com/AndiPetrillo">Andi Petrillo</a> and airing weekdays from 12 noon - 2 p.m. ET, breaking down all the most pressing topics surrounding the city’s favourite hockey team. Colaiacovo joins <a href="https://twitter.com/heylandsberg">Michael Landsberg</a> on <a href="https://www.tsn.ca/radio/toronto-1050/first-up-with-landsberg-colaiacovo">FIRST UP WITH LANDSBERG AND COLAIACOVO</a>, airing weekdays from 6-10 a.m. ET. O’Neill joins <a href="https://twitter.com/HayesTSN">Bryan Hayes</a> and <a href="https://twitter.com/jamiemclennan29">Jamie McLennan</a> on <a href="https://www.tsn.ca/radio/toronto-1050/overdrive">OVERDRIVE</a>, an afternoon staple for Toronto sports fans, airing weekdays from 4-7 p.m. ET.
+
+Visit <a href="https://www.tsn.ca/radio/toronto-1050">TSN1050.ca</a> for the complete radio broadcast schedule.
+
+<strong><u>TSN.ca and the TSN App</u></strong>
+
+TSN has the Toronto Maple Leafs covered from every angle across its websites, app, and social media platforms, featuring the following highlights:
+<ul>
+ 	<li>Up-to-the-minute breaking news, scores, and game recaps, as well as weekly columns and features from Senior Hockey Reporter <a href="https://twitter.com/frank_seravalli">Frank Seravalli</a>, Leafs reporter <a href="https://twitter.com/kristen_shilton">Kristen Shilton</a>, and hockey analytics writer <a href="https://twitter.com/travisyost">Travis Yost</a></li>
+ 	<li>Weekly Leafs 3-in-3 reports examining the three key questions for the team with Shilton and Masters</li>
+ 	<li>Live streaming of games in the team’s designated broadcast region for TSN and TSN Direct subscribers on TSN.ca and the TSN app</li>
+ 	<li>Daily comprehensive coverage of the league, including analysis from TSN’s Hockey Insiders, analysts, and reporters</li>
+ 	<li>Highlights, recaps, and must-see moments from around the league</li>
+ 	<li>Photos, videos, and content across TSN’s official social media platforms, including Facebook, Twitter, and Instagram including DIGITAL SC</li>
+ 	<li><a href="http://bardown.com/">BarDown.com</a> rounds up all the viral moments and social media reaction from the new season</li>
+</ul>
+<strong><u>LEAFS ON TSN</u></strong>
+
+TSN’s regional Leafs games are available on TSN4, TSN.ca, and the TSN app to TSN and TSN Direct subscribers that live in the team’s designated broadcast region as defined by the NHL, which includes Ontario (excluding the Ottawa Valley region).
+
+<strong><u>Hockey on TSN</u></strong>
+
+TSN is home to the Winnipeg Jets, Montreal Canadiens, Ottawa Senators, and Toronto Maple Leafs as part of its package of regional NHL regular season games. This season, TSN delivers 42 Jets games on TSN3, 34 Canadiens games on TSN2, 40 Senators games on TSN5, and 18 Leafs games on TSN4, all in the teams’ respective designated broadcast regions.
+
+TSN complements its live hockey coverage with Canada’s fan-favourite hockey news and information programming, featuring the hockey world’s most trusted team of Hockey Insiders and analysts. TSN’s industry-leading hockey programming includes SPORTSCENTRE, 7-ELEVEN THAT’S HOCKEY, and the network’s slate of signature hockey specials including TRADECENTRE, FREE AGENT FRENZY, FANTASY DRAFT, TOP 50 PLAYERS, and BOB MCKENZIE’S PRE-SEASON DRAFT RANKING.
+                </div>
+
+                            </div><!-- /.section__content -->
+        </div><!-- /.section__inner -->
+    </div><!-- /.grid-container -->
+</section><!-- /.section -->        </div>
+    
+            <div class="transition-fade fade-up">
+        <section class="section-social-media-links">
+    <div class="grid-container">
+        <div class="section__inner">
+            <div class="section__content">
+                <h4>Social Media links</h4>
+                
+                <ul class="social-media-list">
+                    
+                                <li>
+                    <a href="https://twitter.com/tsn_sports">
+                        <span></span> @TSN_Sports
+                    </a>
+                </li>
+                                <li>
+                    <a href="https://twitter.com/tsnhockey">
+                        <span></span> @TSNHockey
+                    </a>
+                </li>
+                                <li>
+                    <a href="http://www.facebook.com/tsn">
+                        <span></span> TSN
+                    </a>
+                </li>
+                                <li>
+                    <a href="http://instagram.com/tsn_official">
+                        <span></span> @tsn_official
+                    </a>
+                </li>
+                                <li>
+                    <a href="http://www.youtube.com/tsncanada">
+                        <span></span> tsncanada
+                    </a>
+                </li>
+                                </ul>
+            </div>
+        </div>
+    </div>
+</section>        </div>
+    
+            <div class="transition-fade">
+        <section class="section-text-bottom">
+    <div class="grid-container">
+        <div class="section__inner">
+            <div class="section__content">
+                <p><strong><u>About TSN</u></strong><u><br />
+</u>TSN is Canada’s Sports Leader and provides world-class content across its industry-leading platforms including five national television feeds, TSN Direct, TSN.ca, and TSN Radio stations across the country. With a broad portfolio of multimedia sports assets, TSN delivers more championship events than any broadcaster in the country. The network’s deep and diverse roster of live sports programming includes the Grey Cup, IIHF World Junior Championship, Spengler Cup, Hockey Canada events, CFL, NFL, NBA, MLS, Toronto Maple Leafs, Ottawa Senators, Montreal Canadiens, Winnipeg Jets, Season of Champions Curling, FIFA World Cup™, UEFA EURO, Concacaf Champions League, MLB, Golf’s Majors, NASCAR, F1, Grand Slam Tennis, UFC, NCAA March Madness, and Skate Canada events. TSN comes from Bell Media, Canada’s premier multimedia company with leading assets in television, radio, digital, and Out-of-Home. More information about TSN is available at<a href="https://www.tsn.ca/"> TSN.ca</a>.</p>
+
+            </div>
+        </div>
+    </div>
+</section>        </div>
+    
+
+
+    
+        
+    
+        <div class="transition-fade">
+        <section class="section section--contacts" id="contact">
+    <div class="grid-container">
+        <header class="section__head">
+            <h1 class="title">Contacts</h1>
+        </header><!-- /.section__head -->
+
+        <div class="section__body">
+            <div class="features-contact--alt">
+                <div class="feature-contact">
+
+                    <div class="feature__head-alt">
+                        <h6>Press Room</h6>
+                    </div><!-- /.feature__head -->
+
+                                                                    <div class="feature__inner">
+                            <div class="feature__image">
+                                 
+                                    <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2013/10/13_Rob-Duffy_0701F.jpg?fit=crop&amp;w=250&amp;h=250&amp;crop=faces&amp;q=75" alt="Contact" />
+                                                            </div><!-- /.feature__i -->
+
+                            <div class="feature__body">
+                                <div class="feature__head">
+                                    <h4>Rob Duffy</h4>
+                                </div><!-- /.feature__ -->
+
+                                
+                                                                    <div class="feature__body-inner">
+
+                                                                                    <div class="feature__content">
+                                                                                                    <h6>Manager, News, Radio, &amp; Sports</h6>
+                                                
+                                                                                                    <ul class="list-contacts">
+
+                                                                                                                                                                                    <li class="phones">
+                                                                    <a href="tel:416-384-5717">
+                                                                        <strong>T:</strong> 416-384-5717
+                                                                                                                                            </a>
+                                                                </li>
+                                                                                                                                                                            
+                                                                                                                    <li class="email">
+                                                                <a href="mailto:rob.duffy@bellmedia.ca" class="btn-circle feature__btn">
+                                                                    <span>Contact</span>
+                                                                    <i class="icon-email"></i>
+                                                                </a>
+                                                            </li>
+                                                                                                            </ul><!-- /.list-cont -->
+                                                                                            </div><!-- /.feature__con -->
+                                        
+                                                                                    <div class="feature__aside">
+                                                <ul class="list-tags">
+                                                                                                                                                        </ul><!-- /.list- -->
+                                            </div><!-- /.feature__a -->
+                                                                            </div><!-- /.feature__body-i -->
+                                                            </div><!-- /.feature__ -->
+                        </div><!-- /.feature__i -->
+                                                                    <div class="feature__inner">
+                            <div class="feature__image">
+                                 
+                                    <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2011/07/06_Natalie-Cole_1489F.jpg?fit=crop&amp;w=250&amp;h=250&amp;crop=faces&amp;q=75" alt="Contact" />
+                                                            </div><!-- /.feature__i -->
+
+                            <div class="feature__body">
+                                <div class="feature__head">
+                                    <h4>Natalie Cole</h4>
+                                </div><!-- /.feature__ -->
+
+                                
+                                                                    <div class="feature__body-inner">
+
+                                                                                    <div class="feature__content">
+                                                                                                    <h6>Communications Officer, News, Radio, &amp; Sports</h6>
+                                                
+                                                                                                    <ul class="list-contacts">
+
+                                                                                                                                                                                    <li class="phones">
+                                                                    <a href="tel:416-384-2140">
+                                                                        <strong>T:</strong> 416-384-2140
+                                                                                                                                            </a>
+                                                                </li>
+                                                                                                                                                                            
+                                                                                                                    <li class="email">
+                                                                <a href="mailto:natalie.cole@bellmedia.ca" class="btn-circle feature__btn">
+                                                                    <span>Contact</span>
+                                                                    <i class="icon-email"></i>
+                                                                </a>
+                                                            </li>
+                                                                                                            </ul><!-- /.list-cont -->
+                                                                                            </div><!-- /.feature__con -->
+                                        
+                                                                                    <div class="feature__aside">
+                                                <ul class="list-tags">
+                                                                                                                                                        </ul><!-- /.list- -->
+                                            </div><!-- /.feature__a -->
+                                                                            </div><!-- /.feature__body-i -->
+                                                            </div><!-- /.feature__ -->
+                        </div><!-- /.feature__i -->
+                                                                    <div class="feature__inner">
+                            <div class="feature__image">
+                                 
+                                    <img src="https://bellmedia-images.imgix.net/lede/wp-content/uploads/2017/09/20181203_17_Hannah-Carver_crop_1741F.jpg?fit=crop&amp;w=250&amp;h=250&amp;crop=faces&amp;q=75" alt="Contact" />
+                                                            </div><!-- /.feature__i -->
+
+                            <div class="feature__body">
+                                <div class="feature__head">
+                                    <h4>Hannah Carver</h4>
+                                </div><!-- /.feature__ -->
+
+                                
+                                                                    <div class="feature__body-inner">
+
+                                                                                    <div class="feature__content">
+                                                                                                    <h6>Communications Coordinator, News, Radio, &amp; Sports</h6>
+                                                
+                                                                                                    <ul class="list-contacts">
+
+                                                                                                                                                                                    <li class="phones">
+                                                                    <a href="tel:416-384-3922">
+                                                                        <strong>T:</strong> 416-384-3922
+                                                                                                                                            </a>
+                                                                </li>
+                                                                                                                                                                            
+                                                                                                                    <li class="email">
+                                                                <a href="mailto:hannah.carver@bellmedia.ca" class="btn-circle feature__btn">
+                                                                    <span>Contact</span>
+                                                                    <i class="icon-email"></i>
+                                                                </a>
+                                                            </li>
+                                                                                                            </ul><!-- /.list-cont -->
+                                                                                            </div><!-- /.feature__con -->
+                                        
+                                                                                    <div class="feature__aside">
+                                                <ul class="list-tags">
+                                                                                                                                                        </ul><!-- /.list- -->
+                                            </div><!-- /.feature__a -->
+                                                                            </div><!-- /.feature__body-i -->
+                                                            </div><!-- /.feature__ -->
+                        </div><!-- /.feature__i -->
+                                    </div><!-- /.feature-con -->
+
+                            </div><!-- /.features-con -->
+        </div><!-- /.section__body -->
+    </div><!-- /.grid-contain -->
+</section><!-- /.section -->
+        </div>
+
+    
+    
+
+            <div class="transition-fade fade-up">
+        <div class="features-teritary pr-nav-footer">
+    <div class="feature-teritary feature-teritary--alt">
+                <a href="https://www.bellmedia.ca/the-lede/press/maple-leafs-announce-blue-vs-white-game-presented-by-canadian-tire-to-be-held-at-scotiabank-arena-saturday-and-broadcast-on-sportsnet-and-tsn">
+
+            
+
+            <div class="feature__image overlay" style="background-image: url(https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1264595221.jpg?fit=crop&amp;w=960&amp;h=430&amp;crop=faces&amp;q=75);"></div><!-- /.feature__image -->
+
+            <div class="feature__inner">
+                                    <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" alt="" class="logo-tv" />
+                                <div class="grid-container">
+                    <div class="feature__body">
+                        <h2>MAPLE LEAFS ANNOUNCE BLUE VS. WHITE GAME PRESENTED BY CANADIAN...</h2>
+                        
+                        <h5>January 7, 2021</h5>
+
+                        <span class="btn-ico">
+                            <i class="ico-arrow-long"></i>
+                        </span>
+                    </div><!-- /.feature__body -->
+                </div><!-- /.grid-container -->
+            </div><!-- /.feature__inner -->
+        </a>
+            </div>
+    
+
+    <div class="feature-teritary feature-teritary--alt">
+                <a href="https://www.bellmedia.ca/the-lede/press/tsn-announces-montreal-canadiens-2020-2021-regional-nhl-broadcast-schedule">
+
+            
+            <div class="feature__image overlay" style="background-image: url(https://bellmedia-images.imgix.net/lede/wp-content/uploads/2021/01/GettyImages-1267241267.jpg?fit=crop&amp;w=960&amp;h=430&amp;crop=faces&amp;q=75);"></div><!-- /.feature__image -->
+
+
+            <div class="feature__inner">
+                                    <img src="https://www.bellmedia.ca/lede/wp-content/uploads/2014/02/tv1_tsn-white.png" alt="" class="logo-tv" />
+                                <div class="grid-container">
+                    <div class="feature__body">
+                        <h2>TSN Announces Montreal Canadiens 2020-2021 Regional NHL Broadc...</h2>
+                        
+                        <h5>January 8, 2021</h5>
+
+                        <span class="btn-ico">
+                            <i class="ico-arrow-long"></i>
+                        </span>
+                    </div><!-- /.feature__body -->
+                </div><!-- /.grid-container -->
+            </div><!-- /.feature__inner -->
+        </a>
+                </div>
+</div><!-- /.features-teri -->
+        </div>
+    
+    </div>
+
+    <section class="section-socials transition-fade">
+		<div class="grid-container">
+			<div class="socials">
+				<h6>Follow Us</h6>
+				<ul>
+										<li>
+						<a href="https://www.twitter.com/thelede_ca" target="_blank" rel="noopener noreferrer">
+							<i class="icon-twitter"></i>
+						</a>
+					</li>
+										<li>
+						<a href="https://www.instagram.com/thelede_ca/" target="_blank" rel="noopener noreferrer">
+							<i class="icon-instagram"></i>
+						</a>
+					</li>
+									</ul>
+			</div><!-- /.socials -->
+		</div><!-- /.grid-container -->
+	</section><!-- /.section -->
+
+<footer class="footer transition-fade">
+	<div class="footer__body">
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x">
+				<div class="large-4 medium-4 cell"><h6>The Lede</h6><nav class="footer__nav"><ul><li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/the-lede/todays-lede-stories/">Today’s Lede Stories</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/the-lede/news/">News</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/the-lede/team/">Team</a></li>
+</ul></nav></div></li>
+<div class="large-4 medium-4 cell"><h6>Advertising sales</h6><nav class="footer__nav"><ul><li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/advertising-sales/tv/">Television advertising</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/advertising-sales/radio/">Radio advertising</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/advertising-sales/out-of-home/">Astral / Out-of-home</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/advertising-sales/digital/">Digital advertising</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/advertising-sales/brand-partnerships/">Brand Partnerships</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-page'><a href="https://www.bellmedia.ca/advertising-sales/contacts/">Contact us</a></li>
+</ul></nav></div></li>
+<div class="large-4 medium-4 cell"><h6>Company</h6><nav class="footer__nav"><ul><li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://www.bellmedia.ca/executive-directory/">Executives</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://www.bellmedia.ca/about-bellmedia/">About Us</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://www.bellmedia.ca/harold-greenberg-fund/">Harold Greenberg Fund</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://www.bellmedia.ca/community/">Community Investment</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://www.bellmedia.ca/closed-captioning/">Closed Captioning</a></li>
+</ul></nav></div></li>
+			</div><!-- /.grid-x grid-margin-x -->
+		</div><!-- /.grid-container -->
+	</div><!-- /.footer__body -->
+
+	<div class="footer__bar">
+		<div class="grid-container">
+			<ul class="footer__links"><li><a href="https://support.bell.ca/Billing-and-Accounts/Security_and_privacy/How_does_Bell_respect_my_privacy">Privacy policy</a></li>
+<li><a href="https://www.bellmedia.ca/bell-media-website-terms-conditions/">Bell Media Website Terms and Conditions</a></li>
+<li><a href="https://www.bellmedia.ca/regulatory-affairs/">Regulatory Affairs</a></li>
+<li><a href="https://www.bellmedia.ca/producer-guidelines/">Producer Guidelines</a></li>
+</ul>
+			<p class="copyright">
+				&copy; 2021
+				<a href="javascript:void(0);" class="logo-bellmedia">
+					<img src="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/resources/assets/images/static/logo-bellmedia-en.png" alt="" />
+				</a>
+
+			All rights reserved.
+			</p><!-- /.copyright -->
+		</div><!-- /.grid-container -->
+	</div><!-- /.footer__bar -->
+</footer><!-- /.footer -->
+
+
+<a href="javascript:void(0);" class="btn-close-popup"></a>
+
+<script type="text/javascript" src="//components.bellmedia.ca/tracking/Include"></script><script type='text/javascript'>Tracking.setSiteAccount('ctvgmbellmedia');
+    Tracking.setSiteSection('en/the-lede');
+    Tracking.setSubSections('press', 'tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule');
+    if (jQuery('#container-404').length) {
+    	Tracking.setPageType('errorPage');
+    }
+    Tracking.track();</script><!-- Begin comScore Tag -->
+	<script>
+	  var _comscore = _comscore || [];
+	  _comscore.push({ c1: "2", c2: "3005664" });
+	  (function() {
+	    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+	    s.src = (document.location.protocol == "https:" ? "https://sb" : "//b") + ".scorecardresearch.com/beacon.js";
+	    el.parentNode.insertBefore(s, el);
+	  })();
+	</script>
+	<noscript>
+	  <img src="//b.scorecardresearch.com/p?c1=2&c2=3005664&cv=2.0&cj=1" />
+	</noscript>
+	<!-- End comScore Tag -->    <div class="popup-alt popup-alt--login" id="popup-login"
+    data-controller='common--components--login--login' 
+    data-common--components--login--login-connected='false'
+    data-common--components--login--login-active-view='login'
+    data-common--components--login--login-open='false'
+>
+
+    <div class="popup__inner">
+
+        <nav>
+
+            <a href="javascript:void(0);" class="btn-back"
+                data-action="common--components--login--login#handleViewClick" 
+                data-target='login'
+            >
+                <span class="btn-ico" data-target='login'>
+                    <i class="icon-right-arrow" data-target='login'></i>
+                </span>
+                <span data-target='login'>Back</span>
+            </a>
+
+            <a href="javascript:void(0);" class="btn-close js-popup" data-target="#popup-login">
+                <span class="ico-x"></span>
+            </a>
+
+            
+        </nav>
+
+        <div class="popup__body">
+            
+            <div class="form-login">
+                <div
+	data-controller='common--modules--form--post' 
+	data-common--modules--form--post-error='false'
+	data-common--modules--form--post-loading='false'
+	data-common--modules--form--post-ajaxaction='bm_login_connect' 
+	data-common--modules--form--post-submiturl='https://www.bellmedia.ca/lede/wp-admin/admin-ajax.php'
+	data-common--modules--form--post-success='user:auth:login'
+	data-target="common--components--login--login.view"
+	data-view='login'
+>
+	<form action="?" method="post" data-action="common--modules--form--post#handleSubmit">
+		<div class="form__head">
+					</div><!-- /.form__head -->
+
+		<div class="form__body">
+			<div class="form__row">
+				<label for="f_email">Email</label>
+
+				<div class="form__controls">
+					<input data-target="common--modules--form--post.input" type="text" class="field" name="email_access" id="f_email" placeholder="Email">
+				</div><!-- /.form__controls -->
+			</div><!-- /.form__row -->
+
+			<div data-target="common--modules--form--post.nonce" data-name='bm_nonce' class="form__row" style='display:none;'>
+				<input type="hidden" id="bm_nonce" name="bm_nonce" value="67944f98b4" /><input type="hidden" name="_wp_http_referer" value="/the-lede/press/tsn-announces-toronto-maple-leafs-2020-2021-regional-nhl-broadcast-schedule/" />			</div>
+
+
+			<div class="form__row">
+				<label for="f_pass">Password</label>
+
+				<div class="form__controls">
+					<input data-target="common--modules--form--post.input" type="password" class="field" name="password_access" id="f_pass" placeholder="Password">
+				</div><!-- /.form__controls -->
+			</div><!-- /.form__row -->
+		</div><!-- /.form__body -->
+
+		
+
+		<div class='form__error'>
+			<span data-target="common--modules--form--post.error"></span>
+		</div>
+
+		<div class="form__actions">
+			<button data-action="common--modules--form--post#handleSubmit" class="btn btn--alt">
+				<span>Login</span> 
+				<span class='btn__loading'><div class='loader__wrapper'>
+    <div class="loader">Loading...</div>
+</div></span>
+			</button>
+		</div><!-- /.form__actions -->
+		
+		<div class="form__foot">
+			<a data-action="common--components--login--login#handleViewClick" data-target='lostpass' href="javascript:void(0);" class="form__link">Forgot your password?</a>
+		</div><!-- /.form__foot -->
+	</form>
+</div><!-- /.form-login -->
+            </div>
+            
+            <div class="form-login form-login--primary">
+                <div 
+
+    data-controller='common--modules--form--post' 
+    data-common--modules--form--post-error='false'
+    data-common--modules--form--post-loading='false'
+    data-common--modules--form--post-ajaxaction='bm_login_register_thelede'
+    data-common--modules--form--post-submiturl='https://www.bellmedia.ca/lede/wp-admin/admin-ajax.php'
+    data-common--modules--form--post-success='user:auth:register'
+
+    data-target="common--components--login--login.view"
+    data-view='register'
+>
+    <form method="post" data-action="common--modules--form--post#handleSubmit">
+        <input name="register_type" type="hidden" value="press"/>
+
+        <div class="form__head">
+            <h6>Register</h6>
+                    </div><!-- /.form__head -->
+
+        <div class="form__body" data-controller='common--modules--elements--active'>
+            <div class="form__row">
+                <label for="f_fname">First name*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_firstname" id="user_firstname" placeholder="First name*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+            <div class="form__row">
+                <label for="f_lname">Last name*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_lastname" id="user_lastname" placeholder="Last name*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+            <div class="form__row">
+                <label for="f_email1">Email*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_email" id="user_email" placeholder="Email*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+
+            <div class="form__row">
+                <label for="f_company">Company Name*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_company" id="user_company" placeholder="Company Name*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+            <div class="form__row">
+                <label for="f_mediatype">Media Type*</label>
+
+                <div class="form__controls">
+                    <select required data-target="common--modules--form--post.input common--modules--form--post.select" class="field" name="user_media_type" id="user_media_type">
+                        <option placeholder="placeholder" value="">
+                            Media Type*                        </option>
+                                                <option value="Newspaper">
+                            Newspaper                        </option>
+                                                <option value="Magazine">
+                            Magazine                        </option>
+                                                <option value="Trade">
+                            Trade                        </option>
+                                                <option value="Online">
+                            Online                        </option>
+                                                <option value="Radio">
+                            Radio                        </option>
+                                                <option value="Television">
+                            Television                        </option>
+                                                <option value="Freelance">
+                            Freelance                        </option>
+                                            </select>
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+
+            <div class="form__row">
+                <label for="f_jobtitle">Job Title*</label>
+
+                <div class="form__controls">
+                    <select required data-target="common--modules--form--post.input common--modules--form--post.select" class="field" name="user_job_title" id="user_job_title">
+                        <option selected="selected" value="">Job Title*</option>
+
+                                                <option value="1">Anchor</option>
+                                                <option value="2">Announcer</option>
+                                                <option value="3">Arts Columnist</option>
+                                                <option value="99">Assignment Desk</option>
+                                                <option value="4">Assignment Editor</option>
+                                                <option value="64">Assistant</option>
+                                                <option value="5">Assistant Editor</option>
+                                                <option value="6">Assistant National Editor</option>
+                                                <option value="7">Assistant Photo Editor</option>
+                                                <option value="114">Assistant Program Director</option>
+                                                <option value="80">Associate</option>
+                                                <option value="8">Associate Editor</option>
+                                                <option value="58">Associate Producer</option>
+                                                <option value="10">Blogger</option>
+                                                <option value="145">Branding Director</option>
+                                                <option value="12">Bureau Chief</option>
+                                                <option value="118">CEO</option>
+                                                <option value="146">Chief Business Officer</option>
+                                                <option value="61">City Editor</option>
+                                                <option value="13">Co-Host</option>
+                                                <option value="15">Columnist</option>
+                                                <option value="74">Communications</option>
+                                                <option value="129">Communications</option>
+                                                <option value="144">Communications Coordinator</option>
+                                                <option value="140">Contributor</option>
+                                                <option value="59">Coordinator</option>
+                                                <option value="16">Copy Editor</option>
+                                                <option value="134">Creative Consultant</option>
+                                                <option value="11">Critic</option>
+                                                <option value="17">Deputy Editor</option>
+                                                <option value="18">Deputy Entertainment Editor</option>
+                                                <option value="122">Deputy Sports Editor</option>
+                                                <option value="76">Director</option>
+                                                <option value="133">Director of Artist Marketing</option>
+                                                <option value="128">Director of Consumer Engagement</option>
+                                                <option value="84">Director of Media Relations</option>
+                                                <option value="97">Director of Promotions</option>
+                                                <option value="131">Director, Media Relations</option>
+                                                <option value="19">Editor</option>
+                                                <option value="21">Editorial Assistant</option>
+                                                <option value="20">Editor-in-Chief</option>
+                                                <option value="22">Entertainment Editor</option>
+                                                <option value="23">Entertainment Producer</option>
+                                                <option value="100">Entertainment Reporter</option>
+                                                <option value="110">Evening Assignment Editor</option>
+                                                <option value="152">Events Coordinator</option>
+                                                <option value="24">Executive Producer</option>
+                                                <option value="123">Features Editor</option>
+                                                <option value="108">Field Producer ]</option>
+                                                <option value="77">Founder</option>
+                                                <option value="85">Freelance Writer</option>
+                                                <option value="25">Freelancer</option>
+                                                <option value="69">General Counsel</option>
+                                                <option value="66">General Manager</option>
+                                                <option value="82">Head of Media and Public Affairs</option>
+                                                <option value="14">Host</option>
+                                                <option value="103">Key Web Producer</option>
+                                                <option value="26">Listings Editor</option>
+                                                <option value="154">Manager</option>
+                                                <option value="87">Manager of Marketing</option>
+                                                <option value="111">Manager, CTV News Production</option>
+                                                <option value="112">Manager, CTV News Resources Desk</option>
+                                                <option value="135">Manager, Media Relations</option>
+                                                <option value="105">Manager, Traffic &amp; Programming Services</option>
+                                                <option value="95">Managing Director of News</option>
+                                                <option value="27">Managing Editor</option>
+                                                <option value="28">Managing Editor, Features</option>
+                                                <option value="117">Marketing Coordinator</option>
+                                                <option value="130">Marketing Manager</option>
+                                                <option value="115">Marketing Manager</option>
+                                                <option value="124">Media Reporter</option>
+                                                <option value="29">Morning Show Host</option>
+                                                <option value="30">Morning Show Producer</option>
+                                                <option value="125">Music Editor</option>
+                                                <option value="31">National Desk Editor</option>
+                                                <option value="70">National Promotions Manager</option>
+                                                <option value="71">National Sales Assistant</option>
+                                                <option value="92">News</option>
+                                                <option value="104">News Anchor</option>
+                                                <option value="32">News Director</option>
+                                                <option value="89">News Editor</option>
+                                                <option value="139">News Editor</option>
+                                                <option value="96">News Reporter</option>
+                                                <option value="88">News Technical Producer</option>
+                                                <option value="33">Online Editor</option>
+                                                <option value="91">Operations Manager</option>
+                                                <option value="36">Photo Editor</option>
+                                                <option value="37">Photo Researcher</option>
+                                                <option value="81">Photographer</option>
+                                                <option value="151">President</option>
+                                                <option value="126">President &amp; CEO</option>
+                                                <option value="38">Producer</option>
+                                                <option value="116">Program &amp; News Director</option>
+                                                <option value="73">Program Director</option>
+                                                <option value="148">Programmer</option>
+                                                <option value="98">Programming </option>
+                                                <option value="132">Promotions</option>
+                                                <option value="39">Promotions Director</option>
+                                                <option value="75">Promotions Manager</option>
+                                                <option value="93">Promotions/Graphics</option>
+                                                <option value="150">Publicist</option>
+                                                <option value="40">Publisher</option>
+                                                <option value="60">Regional Vice President</option>
+                                                <option value="41">Reporter</option>
+                                                <option value="141">Researcher</option>
+                                                <option value="65">Sales</option>
+                                                <option value="9">Section Editor</option>
+                                                <option value="42">Segment Producer</option>
+                                                <option value="63">Senior Content Editor</option>
+                                                <option value="109">Senior Director</option>
+                                                <option value="43">Senior Editor</option>
+                                                <option value="143">Senior Manager, Media Relations</option>
+                                                <option value="79">Senior Producer</option>
+                                                <option value="86">Senior Reporter</option>
+                                                <option value="44">Senior Story Producer</option>
+                                                <option value="90">Senior Web Producer</option>
+                                                <option value="78">Site Publisher</option>
+                                                <option value="46">Special Reports Editor</option>
+                                                <option value="47">Special Sections Editor</option>
+                                                <option value="153">Specialist</option>
+                                                <option value="120">Sports Columnist</option>
+                                                <option value="94">Sports Director</option>
+                                                <option value="119">Sports Editor</option>
+                                                <option value="121">Sports Reporter</option>
+                                                <option value="48">Staff Writer</option>
+                                                <option value="49">Station Manager</option>
+                                                <option value="45">Story Producer</option>
+                                                <option value="149">Supervising Producer</option>
+                                                <option value="50">Talent Booker</option>
+                                                <option value="51">TV Critic</option>
+                                                <option value="52">TV Writer</option>
+                                                <option value="101">Video Journalist</option>
+                                                <option value="72">VP &amp; General Manager</option>
+                                                <option value="68">VP Radio Sales</option>
+                                                <option value="147">VP, Business Development and Partnerships</option>
+                                                <option value="136">VP, Marketing</option>
+                                                <option value="83">Web Editor</option>
+                                                <option value="67">Web Producer</option>
+                                                <option value="53">Webmaster</option>
+                                                <option value="55">Weekend Afternoon Producer</option>
+                                                <option value="54">Weekend Announcer</option>
+                                                <option value="106">Weekend Assignment Editor</option>
+                                                <option value="56">Weekend Editor</option>
+                                                <option value="113">Weekend Producer</option>
+                                                <option value="57">What's On Editor</option>
+                                                <option value="127">Writer</option>
+                                            </select>
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+            <div class="form__row">
+                <label for="f_purpose">Purpose for access*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_purpose" id="user_purpose" placeholder="Purpose for access*" />
+
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+
+            <div class="form__row">
+                <label for="f_phone">Daytime telephone*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_phone" id="user_phone" placeholder="Daytime telephone*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+
+
+            <div class="form__row">
+                <label for="f_url">URL*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_url" id="user_url" placeholder="URL*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+                
+            <div class="form__row">
+                <label for="f_country">Country*</label>
+
+                <div class="form__controls">
+                    <select data-action='common--modules--elements--active#changeActiveByInputValue' required data-target="common--modules--form--post.input common--modules--form--post.select" class="field" name="user_country" id="user_country">
+                        <option placeholder="placeholder" value="">Country*</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="United States of America">United States of America</option>
+                                                    <option value="Other">Other</option>
+                                            </select>
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+
+            <div class="form__row" data-target='common--modules--elements--active.elements' data-id='Canada'>
+                <label for="user_province_ca">Select Province*</label>
+
+                <div class="form__controls">
+                    <select required data-target="common--modules--form--post.input common--modules--form--post.select" class="field" name="user_province_ca" id="user_province_ca">
+                        <option placeholder="placeholder" value="">Select Province*</option>
+                                                    <option value="AB">Alberta</option>
+                                                    <option value="BC">British Columbia</option>
+                                                    <option value="MB">Manitoba</option>
+                                                    <option value="NB">New Brunswick</option>
+                                                    <option value="NL">Newfoundland and Labrador</option>
+                                                    <option value="NS">Nova Scotia</option>
+                                                    <option value="ON">Ontario</option>
+                                                    <option value="PE">Prince Edward Island</option>
+                                                    <option value="QC">Quebec</option>
+                                                    <option value="SK">Saskatchewan</option>
+                                                    <option value="NT">Northwest Territories</option>
+                                                    <option value="NU">Nunavut</option>
+                                                    <option value="YT">Yukon</option>
+                                            </select>
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+
+            <div class="form__row" data-target='common--modules--elements--active.elements' data-id='United States of America'>
+                <label for="user_province_us">Select State*</label>
+
+                <div class="form__controls">
+                    <select required data-target="common--modules--form--post.input common--modules--form--post.select" class="field" name="user_province_us" id="user_province_us">
+                        <option placeholder="placeholder" value="">Select State*</option>
+                                                    <option value="AL">Alabama</option>
+                                                    <option value="AK">Alaska</option>
+                                                    <option value="AZ">Arizona</option>
+                                                    <option value="AR">Arkansas</option>
+                                                    <option value="CA">California</option>
+                                                    <option value="CO">Colorado</option>
+                                                    <option value="CT">Connecticut</option>
+                                                    <option value="DE">Delaware</option>
+                                                    <option value="DC">District Of Columbia</option>
+                                                    <option value="FL">Florida</option>
+                                                    <option value="GA">Georgia</option>
+                                                    <option value="HI">Hawaii</option>
+                                                    <option value="ID">Idaho</option>
+                                                    <option value="IL">Illinois</option>
+                                                    <option value="IN">Indiana</option>
+                                                    <option value="IA">Iowa</option>
+                                                    <option value="KS">Kansas</option>
+                                                    <option value="KY">Kentucky</option>
+                                                    <option value="LA">Louisiana</option>
+                                                    <option value="ME">Maine</option>
+                                                    <option value="MD">Maryland</option>
+                                                    <option value="MA">Massachusetts</option>
+                                                    <option value="MI">Michigan</option>
+                                                    <option value="MN">Minnesota</option>
+                                                    <option value="MS">Mississippi</option>
+                                                    <option value="MO">Missouri</option>
+                                                    <option value="MT">Montana</option>
+                                                    <option value="NE">Nebraska</option>
+                                                    <option value="NV">Nevada</option>
+                                                    <option value="NH">New Hampshire</option>
+                                                    <option value="NJ">New Jersey</option>
+                                                    <option value="NM">New Mexico</option>
+                                                    <option value="NY">New York</option>
+                                                    <option value="NC">North Carolina</option>
+                                                    <option value="ND">North Dakota</option>
+                                                    <option value="OH">Ohio</option>
+                                                    <option value="OK">Oklahoma</option>
+                                                    <option value="OR">Oregon</option>
+                                                    <option value="PA">Pennsylvania</option>
+                                                    <option value="RI">Rhode Island</option>
+                                                    <option value="SC">South Carolina</option>
+                                                    <option value="SD">South Dakota</option>
+                                                    <option value="TN">Tennessee</option>
+                                                    <option value="TX">Texas</option>
+                                                    <option value="UT">Utah</option>
+                                                    <option value="VT">Vermont</option>
+                                                    <option value="VA">Virginia</option>
+                                                    <option value="WA">Washington</option>
+                                                    <option value="WV">West Virginia</option>
+                                                    <option value="WI">Wisconsin</option>
+                                                    <option value="WY">Wyoming</option>
+                                            </select>
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+            
+            <div class="form__row">
+                <label for="f_city">City*</label>
+
+                <div class="form__controls">
+                    <input required data-target="common--modules--form--post.input" type="text" class="field" name="user_city" id="user_city" placeholder="City*" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+
+            
+        </div><!-- /.form__body -->
+
+        <div class="form__foot-alt">
+            <div class="checkbox">
+                <input data-target="common--modules--form--post.input" name='user_newsletter' type="checkbox" id="ch1" />
+
+                <label for="ch1">
+                                            I would like to receive updates
+                                    </label>
+            </div><!-- /.checkbox -->
+
+                    </div><!-- /.form__foot-alt -->
+
+        <div class='form__error'>
+            <span data-target="common--modules--form--post.error"></span>
+            <span data-target="common--modules--form--post.success"></span>
+        </div>
+
+        <div class="form__actions">
+            <button data-action="common--modules--form--post#handleSubmit"  type='submit' class="btn btn--alt btn--light-blue">
+                <span>Apply</span> 
+				<span class='btn__loading'><div class='loader__wrapper'>
+    <div class="loader">Loading...</div>
+</div></span>
+            </button>
+        </div><!-- /.form__actions -->
+    </form>
+</div>            </div>
+
+            <div class="form-login">
+                <div
+    data-target="common--components--login--login.view"
+    data-view='lostpass'
+    data-controller='common--modules--form--post' 
+    data-common--modules--form--post-error='false'
+    data-common--modules--form--post-loading='false'
+    data-common--modules--form--post-ajaxaction='bm_login_reset' 
+    data-common--modules--form--post-submiturl='https://www.bellmedia.ca/lede/wp-admin/admin-ajax.php'
+>
+    <form action="?" method="post" data-action="common--modules--form--post#handleSubmit">
+        <div class="form__head">
+            <h6>FORGOT PASSWORD</h6>
+
+            <p>
+                                    Enter the email address you registered with and we <br>will send you a link to reset your password.
+                            </p>
+        </div><!-- /.form__head -->
+
+        <div class="form__body">
+            <div class="form__row">
+                <label for="f_email-pass">Email</label>
+
+                <div class="form__controls">
+                    <input data-target="common--modules--form--post.input" type="text" class="field field--alt" name="email_access" id="f_email-pass" placeholder="Email" />
+                </div><!-- /.form__controls -->
+            </div><!-- /.form__row -->
+        </div><!-- /.form__body -->
+
+    
+
+        <div class='form__error'>
+            <span data-target="common--modules--form--post.error"></span>
+            <span data-target="common--modules--form--post.success"></span>
+        </div>
+
+        <div class="form__actions">
+            <button class="btn btn--alt btn--dark">
+                <span>Submit</span> 
+                <span class='btn__loading'><div class='loader__wrapper'>
+    <div class="loader">Loading...</div>
+</div></span>
+            </button>
+        </div><!-- /.form__actions -->
+    </form>
+</div>            </div>
+
+            <div class="form-login form-login--secondary">
+                <div
+    data-target="common--components--login--login.view"
+    data-view='logout'
+>
+    <form action="?" method="post">
+
+
+        <div class="form__actions">
+            <button data-action="common--components--login--login#handleLogout" class="btn btn--alt btn--gray">Log Out</button>
+        </div><!-- /.form__actions -->
+    </form>
+</div>            </div>
+
+            
+
+		</div><!-- /.popup__body -->
+
+		<div class="popup__foot" data-target="common--components--login--login.view" data-view='login'>
+			<h6>
+                                    Please login to access downloadable assets from The Lede
+                            </h6>
+
+			<a href="javascript:void(0);" data-action="common--components--login--login#handleViewClick" data-target='register' class="btn btn--alt btn--light-blue">Request an account</a>
+
+            <p>
+                            </p>
+            
+		</div><!-- /.popup__foot -->
+	</div><!-- /.popup__inner -->
+</div><!-- /.popup -->    <script type="text/javascript">
+    window.bm_search = {
+        'search_all'       : "View All",
+		'advertising_sales': "Advertising Sales",
+		'press_room'       : "Press Room",
+		'results'          : "result(s)",
+		'noresults'        : "No results",
+		'pressrelease'     : "News",
+		'post'             : "Blog Posts",
+		'tv_show'          : "TV Shows",
+		'page'             : "Pages",
+		'bio'              : "Executive",
+		'bellmedia_network': "Partnerships",
+		'tv_network'       : "TV Networks",
+		'radio_network'    : "Radio Networks",
+		'ooh_network'      : "Out-of-home Networks",
+		'ooh_market'       : "Out-of-home Markets",
+		'ooh_product'      : "Out-of-home Products",
+		'digital_network'  : "Digital Networks",
+		'creativity_case'  : "Creativity Cases",
+		'lang'             : "en",
+		'relevance'        : "Relevance",
+		'date'             : "Date",
+		'sort_by'          : "Sort by:",
+    }
+</script>
+<div class="popup popup--search" id="popup-search">
+    <div class="popup__inner">
+        <a href="javascript:void(0);" class="popup__btn js-popup" data-target="#popup-search">
+            <i class="ico-x"></i>
+        </a>
+
+        <div class="grid-container">
+            <div 
+                class="search-big" 
+                data-controller=common--components--search--search 
+                data-common--components--search--search-show-filter-mobile="false"
+                data-common--components--search--search-host='https://oak-2768401.us-east-1.bonsai.io/bellmedialede'
+                data-common--components--search--search-filter='pr'
+                data-common--components--search--search-fields='["post_title^5", "url^2", "network", "post_tag^3"]'
+                data-common--components--search--search-has-results
+                data-common--components--search--search-search-match-type="most_fields"
+                data-common--components--search--search-sort-by='["_score", {"post_date": { "order": "desc" }}]'
+                data-common--components--search--search-per-page='8'
+                data-common--components--search--search-filter-by-date="true"
+            >
+                <h2 class="search-title">What are you looking for? </h2>
+                <form action="?" method="get" data-action="submit->common--components--search--search#submitInputChange">
+                    <div class="grid-container">
+    <div class="section-results container-flex">
+        <header class="section__head container-size-adjustment">
+            <div class="search__body">
+                <label for="q1" class="hidden">Search</label>
+                
+                <input 
+                    required
+                    data-target="common--components--search--search.query"
+                    data-action="keyup->common--components--search--search#handleInputChange input->common--components--search--search#handleInputChange"  
+                    type="search" class="search__field" name="q1" id="q1" placeholder="Search" 
+                />
+                
+                <button class="search__btn">
+                    <i class="icon-search"></i>
+                </button>
+            </div><!-- /.search__body -->
+
+            <div class="section__head-bar" >
+                
+                <h6 class="section__head-bar--title" data-action="click->common--components--search--search#toggleFilterOption">
+                    <span>Filters</span>
+                    <span class='triangle-icon'>▴</span>
+                </h6>
+
+                <ul class="list-filters" data-controller=common--modules--elements--active >
+                    <li>
+                        
+                    </li>
+
+                    <li data-active="true" data-target='common--modules--elements--active.elements' data-action="click->common--modules--elements--active#makeActive">
+                        <a data-target='common--components--search--search.defaultfilter' data-type='bellmedia_network,tv_network,digital_network,ooh_network,tv_show,pressrelease,radio_network' data-action="click->common--components--search--search#updateSortBy" data-filter-by-date='true' data-filter='["_score", {"post_date": { "order": "desc" }}]' href="javascript:void(0);">
+                            All                        </a>
+                    </li>
+
+                    <li data-target='common--modules--elements--active.elements' data-action="click->common--modules--elements--active#makeActive">
+                        <a data-action="click->common--components--search--search#updateSortBy" data-filter-by-date='true' data-filter='["_score", {"post_date": { "order": "desc" }}]' data-type='pressrelease' href="javascript:void(0);">
+                            News releases                        </a>
+                    </li>
+
+                    <li data-target='common--modules--elements--active.elements' data-action="click->common--modules--elements--active#makeActive">
+                        <a data-type='tv_show' data-action="click->common--components--search--search#updateSortBy" data-filter-by-date='false' data-filter='["_score", {"post_date": { "order": "desc" }}]' href="javascript:void(0);">
+                            Shows                        </a>
+                    </li>
+
+                    <li data-target='common--modules--elements--active.elements' data-action="click->common--modules--elements--active#makeActive">
+                        <a data-type='radio_network,bellmedia_network,tv_network,digital_network,ooh_network' data-action="click->common--components--search--search#updateSortBy" data-filter-by-date='false' data-filter='["_score", {"post_date": { "order": "desc" }}]' href="javascript:void(0);">
+                            Brands                        </a>
+                    </li>
+                </ul><!-- /.list-filters -->
+
+
+                <a class="date-filter-btn" data-action="click->common--components--search--search#toggleRangeDate" data-filter-by-date='true' data-filter='["_score", {"post_date": { "order": "desc" }}]' data-datefilter='["_score", {"post_date": { "order": "desc" }}]' href="javascript:void(0);">
+                    <span class="date-filter-title">Date Range</span>
+                    <span class='triangle-icon'>▴</span>
+                </a>
+ 
+
+            </div><!-- /.section__head-bar -->
+        </header><!-- /.section__head -->
+        
+        <div class='search__date-filter container-size-adjustment'>
+            <div>
+                <div>
+                  <label for="searchStartDate">Start Date</label>
+                   <input data-target="common--components--search--search.startDate" data-controller='flatpickr' placeholder="YYYY-MM-DD" data-flatpickr_format='Y-m-d' value="" type="text" class="field datepicker picker__input" name="searchStartDate" id="searchStartDate"   aria-haspopup="true" aria-expanded="false"  aria-owns="f_sdate_root">
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="searchEndDate">End Date</label>
+                    <input data-target="common--components--search--search.endDate" data-controller='flatpickr' placeholder="YYYY-MM-DD" data-flatpickr_format='Y-m-d' value="" type="text" class="field datepicker picker__input" name="searchEndDate" id="searchEndDate"   aria-haspopup="true" aria-expanded="false"  aria-owns="f_sdate_root">
+                </div>
+            </div>
+
+            <div>
+                <label for="btnDateSearch" style='opacity:0;'>Search Button</label>
+                <button data-action="click->common--components--search--search#handleInputChange input->common--components--search--search#handleInputChange"   id='btnDateSearch' name='btnDateSearch'>Search</button>
+            </div>
+        </div>
+    
+        <h6 class='result_found container-size-adjustment'><span data-target='common--components--search--search.results'>0</span>&nbsp;result(s)</h6>
+    
+
+        <div class="section__body">
+            
+            
+            <div 
+    class="articles articles--quaternary" 
+    data-target='common--components--search--search.output'
+    data-controller='common--modules--template--template'
+    data-action='template:results:show->common--modules--template--template#createTemplate template:results:delete->common--modules--template--template#clearTemplate'
+>
+
+    <script data-target="common--modules--template--template.template" type="text/x-lodash-template">
+        <% _.forEach(results, function(result) { %>
+            <article class="article article--quaternary" data-id="<%- result.id %>" data-target="common--modules--template--template.renderedElement">
+                <a href="<%- result.permalink %>" target="_blank" rel="noopener noreferrer">
+                    <div class="article__image overlay <%- result.post_type %> <% if (result.image === false) { %> no-image <% } %>">
+                        <% if (result.image != false) { %>
+                            <img src="<%- result.image %>" alt="" />
+                        <% } else if (result.post_type === 'pressrelease') { %>
+                            <img src="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/resources/assets/images/news_generic.jpg" alt="" />
+                        <% } else if (result.post_type === 'tv_show' || result.post_type === 'radio_show' ) { %>
+                            <img src="https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/resources/assets/images/tv_show_generic.jpg" alt="" />
+                        <% } else { %>
+                            <div class='placeholder'> <%- result.title %> </div>
+                        <% } %>
+                        
+                        <img src="<%- result.logo %>" alt="" class="logo-tv logo-tv--size1" />
+                    </div>
+                    
+                    <div class='article__tag'> 
+                        <span><%- result.type %> </span>
+                    </div>
+
+                    <div class="article__body equalize-size1">
+                        <% if (result.post_type === 'pressrelease') { %>
+                            <div class='article__date'>
+                                <span><%- result.post_date %></span>
+                            </div>
+                        <% } %>
+                        <p>
+                            <%- result.title %>
+                        </p>
+                        <h6>
+                            <%- result.title %>
+                        </h6>
+                    </div>
+                </a>
+            </article>
+        <% }); %> 
+    </script>
+    
+</div><!-- /.articles-secondary -->        </div><!-- /.section__body -->
+
+        <div class='container-size-adjustment'>
+            <div class='search__page'>
+    
+    <ol>
+        <li data-action="click->common--components--search--search#goToFirstPage" data-id='1' data-target='common--components--search--search.page' class='search__page--first'>1</li>
+        <li>
+            <ul
+                data-target='common--components--search--search.pages'
+                data-controller='common--modules--template--template'
+                data-action='template:pages:show->common--modules--template--template#createTemplate'
+            >
+                <script data-target="common--modules--template--template.template" type="text/x-lodash-template">
+                    <% _.forEach(results, function(page) { %>
+                        <li class="<%- page.className %>" data-page='<%- page.id %>' data-action='click->common--components--search--search#goToPage' data-id="<%- page.id %>" data-target="common--components--search--search.page common--modules--template--template.renderedElement">
+                                <%- page.id %>
+                        </li>
+                    <% }); %> 
+                </script>
+            </ul>
+        </li>
+        <li data-action="click->common--components--search--search#goToLastPage" data-id='last' data-target='common--components--search--search.page' class='search__page--last'>>></li>
+    </ol>
+
+    <ol>
+        <li><a data-action="click->common--components--search--search#prevPage" class='search__page--prev slick-prev'></a></li>
+        <li><a data-action="click->common--components--search--search#nextPage" class='search__page--next slick-next'></a></li>
+    </ol>
+
+</div>        </div>
+
+        <h6 class='container-size-adjustment result_empty'>No results found for "<b data-target='common--components--search--search.keyword'>keyword</b>"</h6>
+    </div><!-- /.section-results -->
+</div><!-- /.grid-container -->                </form>
+            </div><!-- /.search -->
+        </div><!-- /.grid-container -->
+    </div><!-- /.popup__inner -->
+</div><!-- /.popup -->
+    
+        <script type='text/javascript'>
+/* <![CDATA[ */
+var wpsmartcrop_options = {"focus_mode":null};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/wp-smartcrop/js/jquery.wp-smartcrop.min.js?ver=2.0.5'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/themes/bellmedia-thelede-2021.02.22-215914/dist/scripts/respbgimages_a208dc6b.js'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-includes/js/wp-embed.min.js?ver=5.3.6'></script>
+<script type='text/javascript' src='//auth.9c9media.ca/auth/main.js?ver=5.3.6'></script>
+<script type='text/javascript'>
+if (!window.$) { window.$ = window.jQuery; }
+</script>
+<script type='text/javascript' src='//webapps.9c9media.com/vidi-player/1.9.x/js/player.js?ver=5.3.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var player_config = {"bmPlayerConfig":"bellmedia.ca\/production.json"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/bellmedia-videoplayer//assets/javascripts/bm_videoplayer.js?ver=20200611'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/bellmedia-videoplayer//assets/javascripts/video_ilightbox.js?ver=5.3.6'></script>
+<script type='text/javascript' src='https://www.bellmedia.ca/lede/wp-content/plugins/bellmedia-videoplayer//assets/javascripts/bm_analytics_satellite.js?ver=1'></script>
+
+
+        
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"e01d203033","applicationID":"22325341","transactionName":"NVwEbEQAWEBQURJcWQwWM0pfTlpWVVdJXFgGXB4WRglG","queueTime":0,"applicationTime":1706,"atts":"GRsHGgwaS04=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>

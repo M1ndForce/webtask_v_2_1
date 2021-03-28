@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script
+      src="https://kit.fontawesome.com/b74073d735.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/lib/font-awesome.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/app.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700"
+      rel="stylesheet"
+    />
+    <title>TML</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        id="MainNavbar"
+        class="navbar navbar-dark navbar-expand-md py-0 fixed-top"
+      >
+        <img
+          id="rotate"
+          src="../img/1200px-Maple_leaf_--_Conservative.svg.png"
+          alt=""
+        />
+        <a href="#" class="navbar-brand">Toronto Maple Leafs</a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navLinks"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navLinks">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">MAIN</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <a href="" class="nav-link">MATCHES</a>
+                <div class="dropdown-content">
+                  <a href="../html/calendar.html">Calendar of matches</a>
+                  <a href="#">Next game</a>
+                  <a href="#">Ratings</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="../html/newspage.html" class="nav-link">NEWS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../html/fans.html" class="nav-link">FANS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../html/contacts.html" class="nav-link">CONTACTS</a>
+            </li>
+            <li class="nav-item">
+              <a href="../html/admin.html" class="nav-link">ADMIN</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container py-5">
+        <header class="text-white text-center">
+          <p class="mb-5 font-weight-light"></p>
+        </header>
+        <div class="row py-4">
+          <div class="col-lg-6 mx-auto">
+            <div
+              class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"
+            >
+              <input
+                id="upload"
+                type="file"
+                onchange="readURL(this);"
+                class="form-control border-0"
+              />
+              <label
+                id="upload-label"
+                for="upload"
+                class="font-weight-light text-muted"
+                >Choose file</label
+              >
+              <div class="input-group-append">
+                <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
+                  <i class="fa fa-cloud-upload mr-2 text-muted"></i
+                  ><small class="text-uppercase font-weight-bold text-muted"
+                    >Choose file</small
+                  ></label
+                >
+              </div>
+            </div>
+            <p class="font-italic text-white text-center"></p>
+            <div class="image-area mt-4">
+              <img
+                id="imageResult"
+                src="#"
+                alt=""
+                class="img-fluid rounded shadow-sm mx-auto d-block"
+              />
+            </div>
+            <form>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-header"
+                    >News header
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Default"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span
+                    class="input-group-text"
+                    id="inputGroup-short-description"
+                    >News title</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Default"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">News describe</span>
+                </div>
+                <textarea
+                  class="form-control"
+                  aria-label="With textarea"
+                ></textarea>
+              </div>
+              <button class="btn btn-success">Add news</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            $("#imageResult").attr("src", e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      const input = document.getElementById("upload");
+      $(function () {
+        $("#upload").on("change", function () {
+          readURL(input);
+        });
+      });
+
+      const infoArea = document.getElementById("upload-label");
+
+      input.addEventListener("change", showFileName);
+      function showFileName(event) {
+        const input = event.srcElement;
+        const fileName = input.files[0].name;
+        infoArea.textContent = "File name: " + fileName;
+      }
+
+      $(function () {
+        $(document).scroll(function () {
+          let $nav = $("#MainNavbar");
+          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        });
+      });
+    </script>
+  </body>
+</html>
